@@ -65,7 +65,6 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -85,8 +84,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>
-      </AdditionalDependencies>
       <ManifestFile>$(IntDir)mod.manifest</ManifestFile>
     </Link>
     <Manifest>
@@ -108,6 +105,7 @@
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="KartModels.h" />
     <ClInclude Include="LandTableInfo.h" />
+    <ClInclude Include="Markov.h" />
     <ClInclude Include="MemAccess.h" />
     <ClInclude Include="ModelInfo.h" />
     <ClInclude Include="ModelSwap.h" />
@@ -131,6 +129,7 @@
     <ClInclude Include="Subtitles.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Trampoline.h" />
+    <ClInclude Include="TTS.h" />
     <ClInclude Include="TwitchIRC.h" />
     <ClInclude Include="UsercallFunctionHandler.h" />
   </ItemGroup>
@@ -147,6 +146,7 @@
     <ClCompile Include="KartModels.cpp" />
     <ClCompile Include="KartRando.cpp" />
     <ClCompile Include="LandTableInfo.cpp" />
+    <ClCompile Include="Markov.cpp" />
     <ClCompile Include="ModelInfo.cpp" />
     <ClCompile Include="ModelSwap.cpp" />
     <ClCompile Include="RankVoices.cpp" />
@@ -161,6 +161,7 @@
     </ClCompile>
     <ClCompile Include="Subtitles.cpp" />
     <ClCompile Include="Trampoline.cpp" />
+    <ClCompile Include="TTS.cpp" />
     <ClCompile Include="TwitchIRC.cpp" />
   </ItemGroup>
   <ItemGroup>

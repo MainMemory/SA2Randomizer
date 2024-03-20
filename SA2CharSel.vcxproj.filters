@@ -123,6 +123,12 @@
     <ClInclude Include="Trampoline.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Markov.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TTS.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -189,6 +195,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Trampoline.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Markov.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TTS.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

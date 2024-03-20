@@ -14,6 +14,7 @@
 #include "Animations.h"
 #include "Coloring.h"
 #include <sstream>
+#include "TTS.h"
 
 ChaoData* chaoDataS = new ChaoData();
 ChaoData* otter = new ChaoData();
@@ -105,6 +106,7 @@ bool emeraldColorSet = false;
 int emRed = 0;
 int emGreen = 0;
 int emBlue = 0;
+bool usetts = false;
 
 enum cutPlaces
 {
@@ -2119,12 +2121,13 @@ static int __cdecl randVoice(int a) {
 			else if (game == 2) temp = 2727 + 2049;
 		}
 
-		displayMe = displaySub(r+temp, 3, tag);
+		displayMe = displaySub(r+temp, 3, tag, usetts);
+
+		if (usetts) return -1;
 
 	}
 	//PrintInt(r);
 	if (game != 1 && GameMode != 8 && CurrentMenu != Menus_StorySelect && !isOmochaoLine(a)) voiceLineLang = rand() % 2;
-
 
 	if (playFromWav) {
 		string number = "";
@@ -2189,7 +2192,8 @@ static int __cdecl randWav(int a) {
 			else if (game == 2) temp = 2727 + 2049;
 		}
 
-		if(r <9592) displayMe = displaySub(r + temp, 3, tag);
+		if(r <9592) displayMe = displaySub(r + temp, 3, tag, usetts);
+		if (usetts) return -1;
 	}
 	PrintInt(r);
 	string number = "";
@@ -7266,6 +7270,15 @@ extern "C"
 			WriteData((ObjectFuncPtr*)0x6C0879, Omochao_RandomMessage);
 
 		}
+
+		int markov = settings->getInt("OnOffVL", "markov");
+		if (markov > 0)
+		{
+			initMarkov(markov);
+			if (settings->getBool("OnOffVL", "tts"))
+				usetts = InitTTS();
+		}
+
 		if (settings->getBool("rando", "rM2")) {
 			WriteJump((void*)0x4966B2, MissionTextHook);
 
